@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "DOM to PDF",
+  "version": "1.0.0",
+  "description": "Convertation DOM elements to PDF",
+  "action": {
+    "default_title": "DOM to PDF",
+    "default_popup": "./src/popup/index.html"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "content_scripts": [
+      {
+          "matches":["*://*/*"],
+          "js":["./src/background/html2pdf.bundle.min.js"],
+          "run_at": "document_end"
+      }
+  ]
+}
